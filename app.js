@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const app = express();
 
 const userRoutes = require("./routes/users");
-const transactionRoutes = require("./routes/transactions");
+const machineRoutes = require("./routes/machines");
+const maintenanceRoutes = require("./routes/maintenances");
 
 // Import de las routes
 
@@ -25,6 +26,7 @@ mongoose
 	});
 
 app.use("/api/users", userRoutes);
-app.use("/api/transactions", transactionRoutes);
+app.use("/api/machines", machineRoutes);
+app.use("/api/maintenances", maintenanceRoutes);
 
 module.exports = app;
