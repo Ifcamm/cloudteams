@@ -68,7 +68,7 @@ exports.updateUser = (req, res) => {
 	});
 };
 
-//metodo para eliminar un usuarios (DELETE)
+//metodo para eliminar un usuarios
 exports.deleteUser = (req, res) => {
 	User.deleteOne({ _id: req.params.id }).then((result) => {
 		if (result.deletedCount > 0) {
@@ -82,7 +82,7 @@ exports.deleteUser = (req, res) => {
 //metodo de inicio de sesión
 exports.login = (req, res) => {
 	let userGet;
-	User.findOne({ email: req.body.email })
+	User.findOne({ identification: req.body.identification })
 		.then((user) => {
 			if (!user) {
 				return;
@@ -96,9 +96,10 @@ exports.login = (req, res) => {
 			}
 			const token = jwt.sign(
 				{
-					email: userGet.email,
+					identification: userGet.identification,
 					userId: userGet._id,
 					userRole: userGet.role,
+					userName: userGet.name,
 				},
 				process.env.TOKEN_S,
 				{ expiresIn: "1h" }
@@ -109,9 +110,8 @@ exports.login = (req, res) => {
 				expiresIn: 3600,
 				userId: userGet._id,
 				userRole: userGet.role,
+				userName: userGet.name,
 			});
-
-			// res.status(200).json({ message: "Successful authentication" });
 		})
 		.catch((err) => {
 			return res.status(401).json({ message: "Authentication failed" });

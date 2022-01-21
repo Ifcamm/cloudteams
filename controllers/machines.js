@@ -1,6 +1,6 @@
 const Machine = require("../models/machine");
 
-//metodo para obtener todas las máquinas (GET)
+//metodo para obtener todas las máquinas
 exports.getMachines = (req, res) => {
 	Machine.find().then((machineResult) => {
 		if (!machineResult) {
@@ -23,20 +23,20 @@ exports.getMachine = (req, res) => {
 //metodo para crear una nueva máquina
 exports.createMachine = (req, res) => {
 	const newMachine = new Machine({
-		activo: req.body.activo,
-		equipo: req.body.equipo,
-		marca: req.body.marca,
-		codigo: req.body.codigo,
-		ubicacion: req.body.ubicacion,
-		modelo: req.body.modelo,
-		serie: req.body.serie,
-		voltaje: req.body.voltaje,
-		medidas: req.body.medidas,
-		potencia: req.body.potencia,
-		inventario: req.body.inventario,
-		velocidad: req.body.velocidad,
-		referencia: req.body.referencia,
-		capacidad: req.body.capacidad,
+		assetcode: req.body.assetcode,
+		asset: req.body.asset,
+		trademark: req.body.trademark,
+		code: req.body.code,
+		location: req.body.location,
+		model: req.body.model,
+		series: req.body.series,
+		voltage: req.body.voltage,
+		measurement: req.body.measurement,
+		power: req.body.power,
+		inventory: req.body.inventory,
+		speed: req.body.speed,
+		reference: req.body.reference,
+		capacity: req.body.capacity,
 	});
 
 	newMachine
@@ -54,20 +54,20 @@ exports.updateMachine = (req, res) => {
 	const id = req.params.id;
 	const machine = new Machine({
 		_id: id,
-		activo: req.body.activo,
-		equipo: req.body.equipo,
-		marca: req.body.marca,
-		codigo: req.body.codigo,
-		ubicacion: req.body.ubicacion,
-		modelo: req.body.modelo,
-		serie: req.body.serie,
-		voltaje: req.body.voltaje,
-		medidas: req.body.medidas,
-		potencia: req.body.potencia,
-		inventario: req.body.inventario,
-		velocidad: req.body.velocidad,
-		referencia: req.body.referencia,
-		capacidad: req.body.capacidad,
+		assetcode: req.body.assetcode,
+		asset: req.body.asset,
+		trademark: req.body.trademark,
+		code: req.body.code,
+		location: req.body.location,
+		model: req.body.model,
+		series: req.body.series,
+		voltage: req.body.voltage,
+		measurement: req.body.measurement,
+		power: req.body.power,
+		inventory: req.body.inventory,
+		speed: req.body.speed,
+		reference: req.body.reference,
+		capacity: req.body.capacity,
 	});
 
 	Machine.updateOne({ _id: id }, machine).then((result) => {
