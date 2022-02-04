@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const contractSchema = mongoose.Schema({
 	//encabezado
+	title: { type: String, required: true },
 	business: { type: String, required: true },
 	process: { type: String, required: true },
 	line: { type: String },
@@ -20,13 +21,14 @@ const contractSchema = mongoose.Schema({
 	faultureOrigin: { type: String },
 	operationalCheckList: { type: String },
 	preventivePlans: { type: String },
+	predictivePlans: { type: String },
 
 	//cuerpo who
 	category: { type: String },
 	workPlace: { type: String },
 
 	//cuerpo when
-	frecuencia: { type: String },
+	frecuency: { type: String },
 	lineCondition: { type: String },
 	hm: { type: String },
 

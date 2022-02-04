@@ -8,6 +8,7 @@ const userRoutes = require("./routes/users");
 const machineRoutes = require("./routes/machines");
 const maintenanceRoutes = require("./routes/maintenances");
 const maintenancePlanRoutes = require("./routes/maintenance-plans");
+const contractRoutes = require("./routes/contracts");
 
 // Import de las routes
 
@@ -30,5 +31,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/machines", machineRoutes);
 app.use("/api/maintenances", maintenanceRoutes);
 app.use("/api/maintenanceplans", maintenancePlanRoutes);
+app.use("/api/contracts", contractRoutes);
 
 module.exports = app;
